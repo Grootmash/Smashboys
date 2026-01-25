@@ -65,7 +65,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <span className="badge-fire">🔥</span>
-            <span>Atlanta's #1 Smash Burgers</span>
+            <span>Your Search For The Perfect Burger Ends Here</span>
           </motion.div>
 
           <div className="hero-title-wrapper">
@@ -178,18 +178,18 @@ const Hero = () => {
             transition={{ delay: 2.2, duration: 0.8 }}
           >
             <div className="stat-item">
-              <span className="stat-number">100%</span>
-              <span className="stat-label">Fresh Beef</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
               <span className="stat-number">5K+</span>
               <span className="stat-label">Happy Customers</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
+              <span className="stat-number">100%</span>
+              <span className="stat-label">Locally Sourced Fresh Beef</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
               <span className="stat-number">4.9★</span>
-              <span className="stat-label">Google Rating</span>
+              <span className="stat-label">Google Ratings</span>
             </div>
           </motion.div>
         </motion.div>
