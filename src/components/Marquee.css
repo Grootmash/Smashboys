@@ -1,0 +1,23 @@
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-gold);
+    padding: 20px 0;
+    transform: rotate(-1deg) scale(1.02);
+    margin: 80px 0;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.marquee-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-black);
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    letter-spacing: 3px;
+}

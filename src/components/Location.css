@@ -1,0 +1,101 @@
+.location-section {
+    padding: 120px 5%;
+    background: var(--color-black);
+}
+
+.location-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-white);
+    line-height: 1.1;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.location-card {
+    background: linear-gradient(145deg, #111 0%, #0a0a0a 100%);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.location-card:hover {
+    border-color: rgba(255, 215, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.location-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.location-card h3 {
+    color: var(--color-gold);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.location-card p {
+    color: #888;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hours-list {
+    list-style: none;
+}
+
+.hours-list li {
+    color: #888;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hours-list li:last-child {
+    border-bottom: none;
+}
+
+.hours-list span {
+    color: var(--color-white);
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.social-tag {
+    color: var(--color-gold) !important;
+    font-weight: 700;
+    font-size: 1.2rem !important;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .location-content {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
