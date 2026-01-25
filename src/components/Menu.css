@@ -1,49 +1,80 @@
 .menu-section {
     padding: 120px 5%;
-    background: var(--color-black);
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
     position: relative;
+    overflow: hidden;
+}
+
+/* Background texture */
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 215, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .menu-header {
     text-align: center;
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto 80px;
+    position: relative;
+    z-index: 1;
 }
 
 .section-label {
     display: inline-block;
-    font-size: 0.85rem;
+    padding: 8px 16px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 50px;
+    font-size: 0.8rem;
     color: var(--color-gold);
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .section-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5rem);
     color: var(--color-white);
-    margin-bottom: 20px;
-    line-height: 1.1;
+    margin-bottom: 24px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -2px;
 }
 
 .section-subtitle {
-    color: #888;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .menu-category {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 1;
 }
 
 .category-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--color-gold);
     margin-bottom: 40px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
 }
 
 .category-title::after {
@@ -55,39 +86,46 @@
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
 }
 
 .menu-card {
-    background: linear-gradient(145deg, #111 0%, #0a0a0a 100%);
+    background: rgba(20, 20, 20, 0.6);
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-card:hover {
     border-color: rgba(255, 215, 0, 0.3);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.05);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card-image-wrapper {
     position: relative;
-    height: 220px;
+    height: 250px;
     overflow: hidden;
-    background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+    background: #000;
 }
 
 .card-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.9;
 }
 
 .menu-card:hover .card-image-wrapper img {
     transform: scale(1.1);
+    opacity: 1;
 }
 
 .card-overlay {
@@ -96,7 +134,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,16 +147,16 @@
 }
 
 .view-details {
-    padding: 12px 25px;
+    padding: 14px 30px;
     background: var(--color-gold);
     color: var(--color-black);
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 800;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 50px;
     transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover .view-details {
@@ -127,51 +165,83 @@
 
 .badge {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 8px 15px;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
     background: var(--color-gold);
     color: var(--color-black);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .card-content {
-    padding: 25px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     gap: 15px;
 }
 
 .item-name {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--color-white);
-    font-weight: 700;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    line-height: 1.2;
 }
 
 .item-price {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--color-gold);
     font-weight: 900;
     font-family: var(--font-heading);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
 }
 
 .item-desc {
-    color: #777;
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
     line-height: 1.6;
 }
 
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media screen and (max-width: 600px) {
+    .menu-section {
+        padding: 80px 5%;
+    }
+
     .menu-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .card-image-wrapper {
+        height: 200px;
     }
 }
