@@ -1,0 +1,264 @@
+/* Mobile Responsiveness Fixes for SmashBoys */
+
+/* ============================================
+   GRAPHICS SMOOTHNESS IMPROVEMENTS
+   ============================================ */
+
+/* Enable hardware acceleration for smooth animations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions with GPU acceleration */
+button,
+a,
+[class*="transition"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ============================================
+   STORY SECTION REMOVAL
+   ============================================ */
+
+/* Hide navigation STORY link (first button in nav) */
+.flex.items-center.gap-1.sm\:gap-4>button:first-child {
+    display: none !important;
+}
+
+/* Hide SEE THE STORY button in hero section */
+button.group.relative.px-10.py-4.bg-gold.text-black.font-display.font-bold.text-sm.uppercase.tracking-wider.rounded-full.overflow-hidden.transition-all.duration-300.hover\:shadow-glow-lg.hover\:scale-105 {
+    display: none !important;
+}
+
+/* Hide the entire STORY section AND collapse its space */
+#story {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Force partners/vendors section and all its content to be visible */
+#partners,
+#partners * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Force menu section and all its content to be visible */
+#menu,
+#menu * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ============================================
+   MOBILE LAYOUT FIXES (max-width: 640px)
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    /* --- General body --- */
+    body {
+        -webkit-overflow-scrolling: touch;
+        font-size: 16px !important;
+        overflow-x: hidden !important;
+    }
+
+    /* --- Smooth but not overly aggressive animation ---  */
+    * {
+        transition-duration: 0.3s !important;
+    }
+
+    /* Slow down fire/flame animations */
+    svg,
+    [class*="fire"],
+    [class*="flame"],
+    .animate-pulse {
+        animation-duration: 4s !important;
+        animation-timing-function: ease-in-out !important;
+    }
+
+    .animate-pulse-glow,
+    [class*="pulse-glow"] {
+        animation-duration: 4s !important;
+    }
+
+    /* --- Hero section --- */
+    .min-h-svh {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* EST badge positioning - above the SMASHBOYS title */
+    .absolute.top-\[25\%\].left-1\/2.-translate-x-1\/2,
+    [class*="EST"] {
+        top: 140px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) scale(0.8) !important;
+        z-index: 50 !important;
+    }
+
+    /* Hero title sizing */
+    .text-\[15vw\],
+    .font-display.font-black.text-\[15vw\] {
+        font-size: 14vw !important;
+        white-space: nowrap !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.05em !important;
+        overflow: visible !important;
+    }
+
+    h1,
+    .text-\[15vw\] {
+        max-width: 100vw !important;
+        overflow: visible !important;
+    }
+
+    /* Hero subtitle */
+    .text-xl.tracking-\[0\.3em\] {
+        margin-top: 1rem !important;
+        font-size: 0.875rem !important;
+        letter-spacing: 0.2em !important;
+    }
+
+    /* --- Stats section --- */
+    .flex.items-center.gap-12 {
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    /* --- Navigation --- */
+    nav {
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    nav .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    /* Smaller nav buttons on mobile */
+    nav button {
+        min-height: 36px !important;
+        padding: 0.4rem 0.75rem !important;
+        font-size: 10px !important;
+    }
+
+    /* Order button in nav */
+    nav .bg-gold {
+        padding: 0.4rem 0.75rem !important;
+        font-size: 10px !important;
+    }
+
+    /* --- MENU CARDS: Single column on mobile --- */
+    #menu .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Better card image height for single column */
+    #menu .grid>* img {
+        max-height: 200px !important;
+        object-fit: cover !important;
+    }
+
+    /* Menu section heading */
+    #menu .text-3xl {
+        font-size: 1.75rem !important;
+    }
+
+    /* --- PARTNERS SECTION: Single column --- */
+    #partners .grid,
+    section[class*="partners"] .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* --- ORDER / CONTACT SECTION --- */
+
+    /* Form grid: Stack name/email vertically */
+    #order .grid.grid-cols-1.sm\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Delivery + Pickup buttons stack */
+    #order .flex.flex-col.sm\:flex-row.gap-4 {
+        flex-direction: column !important;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        text-align: center !important;
+    }
+
+    footer .flex.flex-col.sm\:flex-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+    }
+
+    footer .flex.items-center.gap-3 {
+        justify-content: center !important;
+    }
+
+    footer .flex.items-center.gap-6 {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+
+    footer p {
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    /* --- RESPONSIVE TYPOGRAPHY --- */
+    .text-4xl {
+        font-size: 1.875rem !important;
+    }
+
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem !important;
+    }
+
+    /* --- TOUCH TARGETS --- */
+    a,
+    input,
+    select,
+    textarea {
+        min-height: 44px !important;
+    }
+
+    /* Keep general buttons reasonable but not oversized */
+    button {
+        min-height: 40px !important;
+    }
+
+    /* --- Focus states --- */
+    button:focus,
+    a:focus {
+        outline: 3px solid gold !important;
+        outline-offset: 2px !important;
+    }
+}
+
+/* ============================================
+   MEDIUM SCREENS (tablets)
+   ============================================ */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    #menu .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
